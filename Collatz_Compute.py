@@ -4,7 +4,7 @@ to the result.
 """
 
 def show_collatz(n):
-    """This functions the steps n takes to get to 1 an what the steps are"""
+    """This functions shows the steps n takes to get to 1 and what the steps are"""
     res = int(n) # The result of the computations
     print("Step 0: " + str(int(res)))
     for i in range(1, 10000):
@@ -58,3 +58,10 @@ def collatz_true_alt(n, a):
                 res = (3*res+1)
         if c1 == True:
             print(str(e+1) + ": " + str(n_steps) + " steps.")
+
+show_collatz_input = int(input("Please enter a nonnegative integer:"))
+show_collatz(show_collatz_input)
+collatz_true_input = int(input("Please enter another nonnegative integer:"))
+collatz_true(collatz_true_input)
+collatz_true_alt_input = int(input("Please enter another nonnegative integer:"))
+collatz_true_alt(collatz_true_input, collatz_true_alt_input)
