@@ -24,47 +24,35 @@ def show_collatz(n):
         {"-"*(30)}
         """)
 
-def collatz_range(n):
-    """This function takes in a number and shows all the numbers beetween 
-    1 and n and shows how many steps each number takes to get to 1
-    """
-    global c1
-    c1 = False
-    for e in range(n):
-        res = e+1
-        for i in range(100000):
-            if res % 2 == 0:
-                res /= 2
-            elif res == 1:
-                c1 = True
-                n_steps = i
-                break
-            else:
-                res = (3*res+1)
-        if c1 == True:
-            print(str(e+1) + ": " + str(n_steps) + " steps.") 
+def collatz_range_n(n):
+    """This function takes in a number and shows all the numbers from 1 to n 
+    and shows how many steps each number takes to get to 1"""
+    for i in range(1, n+1):
+        j = 0
+        c = i
+        while c != 1:
+            j += 1
+            c = {
+                0: int(c/2),
+                1: int(3*c + 1)
+            }.get(int(c%2))
+        print(f"{i}: {j} steps")
 
-def collatz_true_alt(n, a):
+
+def collatz_range(n, a):
     """This function does the same as collatz_range but this time from n to n+a"""
-    global c1
-    c1 = False
-    for e in range(n, n+a):
-        res = e+1
-        for i in range(100000):
-            if res % 2 == 0:
-                res /= 2
-            elif res == 1:
-                c1 = True
-                n_steps = i
-                break
-            else:
-                res = (3*res+1)
-        if c1 == True:
-            print(str(e+1) + ": " + str(n_steps) + " steps.")
+    for i in range(n, n+a):
+        j = 0
+        c = i
+        while c != 1:
+            j += 1
+            c = {
+                0: int(c/2),
+                1: int(3*c + 1)
+            }.get(int(c%2))
+        print(f"{i}: {j} steps")
 
-show_collatz_input = int(input("Please enter a nonnegative integer:"))
-show_collatz(show_collatz_input)
-collatz_range_input = int(input("Please enter another nonnegative integer:"))
-collatz_range(collatz_range_input)
-collatz_true_alt_input = int(input("Please enter another nonnegative integer:"))
-collatz_true_alt(collatz_true_input, collatz_true_alt_input)
+
+show_collatz(int(input("Please enter a nonnegative integer:")))
+collatz_range_n(int(input("Please enter another nonnegative integer:")))
+collatz_range(int(input("Please enter another nonnegative integer:")), int(input("Please enter another nonnegative integer:")))
