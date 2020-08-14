@@ -51,8 +51,3 @@ def collatz_range(n, a):
                 1: int(3*c + 1)
             }.get(int(c%2))
         print(f"{i}: {j} steps")
-
-
-show_collatz(int(input("Please enter a nonnegative integer:")))
-collatz_range_n(int(input("Please enter another nonnegative integer:")))
-collatz_range(int(input("Please enter another nonnegative integer:")), int(input("Please enter another nonnegative integer:")))
