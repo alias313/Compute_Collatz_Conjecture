@@ -55,7 +55,7 @@ def collatz_specific_range(n, a):
 
 if __name__ == "__main__":
     try:
-        arg1 = sys.argv[1:]
+        arg1 = sys.argv[1]
         arg2 = sys.argv[2]
     except IndexError:
         raise SystemExit(f"Usage: {sys.argv[0]} <function name> <argument/s>")
@@ -64,12 +64,12 @@ if __name__ == "__main__":
         arg2 = int(arg2)
         if len(sys.argv) == 4:
             arg3 = int(sys.argv[3])
-            if arg3 < 0:
+            if arg3 <= 0:
                 raise SystemExit("Please enter a positive integer as an argument")
     except ValueError:
         raise SystemExit("Please enter an integer as the second and/or third command-line argument")
     
-    if arg2 < 0:
+    if arg2 <= 0:
         raise SystemExit("Please enter a positive integer as an argument")
 
     if arg1 == "show_collatz":
